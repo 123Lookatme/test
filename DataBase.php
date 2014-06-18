@@ -4,8 +4,7 @@ class DataBase
 {
     private  $DB_connect;
     private static $instance;
-    static $offset=0;
-
+    
     private function __construct()
     {
         $this->DB_connect= mysql_connect(DB_HOST,DB_USER,DB_PASSWORD);
