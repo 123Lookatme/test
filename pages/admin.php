@@ -1,25 +1,9 @@
 
 
 <?php
-//максимальный вывоб блоков на странице
-$limit=3;
-//максимальное кол-во страниц
-$max_pages=ceil($this->num_rows/$limit);
-//выбираем страницу, чтоб узнать офсет
-$page=$_GET['page'];
-$list=$page-1;
-$offset=$list*$limit;
-
-//если page=-1 итд
-if($page<=0)$page=1;
-//если page=100500 итд
-if($page>$max_pages) $page=$max_pages;
-//чтоб выборка начиналась с 0 эл-та
-if($page==1)$offset=0;
-if($page==2)$offset=$limit;
-//Забираем нужные блоки
-
-$result=$this->get_content($offset,$limit);
+$result=$this->pagination(3);
+$max_pages=$result[0];
+$result=$result[1];
 
 ?>
 
@@ -39,7 +23,7 @@ $result=$this->get_content($offset,$limit);
 <?php endfor?>
 </div>
 
-<?php if($max_pages>1):?>
+<?php if($result[0]>1):?>
     <ul class="pagination" id="center">
         <li><a href="<?php $_SERVER['PHP_SELF'];?>?page=1">&laquo;</a></li>
              <?php for($i=1;$i<=$max_pages;$i++):?>

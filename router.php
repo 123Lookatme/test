@@ -40,11 +40,26 @@ class Router{
         else
             return FALSE;
     }
-                    //выборка блоков из БД
-    public function get_content($limit,$offset)
+                    //Pagination
+    public function pagination($limit)
     {
-        $result=$this->db->get_pages($offset,$limit);
-        return $result;
+        $result=array();
+        $max_pages=ceil($this->num_rows/$limit);
+        $page=$this->get['page'];
+        $list=$page-1;
+        $offset=$list*$limit;
+        if($page<=0)$page=1;
+        if($page>$max_pages) $page=$max_pages;
+        if($page==1)$offset=0;
+        if($page==2)$offset=$limit;
+        $query=$this->db->get_pages($limit,$offset);
+        if(!empty($query))
+        {
+            array_push($result,$max_pages,$query);
+            return $result;
+        }
+        else return FALSE;
+
     }
 
 

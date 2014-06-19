@@ -12,7 +12,7 @@ class DataBase
     }
 
     private function __clone(){}
-//Singleton pattern
+//Singleton
     public static function getInstance()
     {
         self::$instance?:self::$instance=new self;
@@ -42,7 +42,6 @@ class DataBase
     {
         $result=array();
         $query=("SELECT theme,mail,msg,file,date FROM ".TABLE_NAME." ".$order." ".$option." LIMIT ".$limit." "." OFFSET ".$offset." " );
-
         $rows= mysql_query($query) or die(mysql_error());
         while($row=mysql_fetch_assoc($rows))
         {
