@@ -23,7 +23,7 @@ $result=$result[1];
 <?php endfor?>
 </div>
 
-<?php if($result[0]>1):?>
+<?php if($max_pages>1):?>
     <ul class="pagination" id="center">
         <li><a href="<?php $_SERVER['PHP_SELF'];?>?page=1">&laquo;</a></li>
              <?php for($i=1;$i<=$max_pages;$i++):?>
