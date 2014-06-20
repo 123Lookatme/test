@@ -3,9 +3,9 @@
 
 
 //Database Config
-define('DB_HOST','localhost');
-define('DB_USER','root');
-define('DB_PASSWORD','1234');
+define('DB_HOST','');
+define('DB_USER','');
+define('DB_PASSWORD','');
 define('DB_NAME','123Lookatme');
 define('TABLE_USER_MESSAGES','user_messages');
 define('TABLE_USERS','users');
