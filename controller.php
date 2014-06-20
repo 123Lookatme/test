@@ -108,7 +108,7 @@ class Controller{
                                     }
                                     else
                                         header('Location:index.php?admin=login');break;
-                                    //
+                                    //Загрузка файла с сервера
                     case 'file' :  $file_name=$_GET['file'];
                                     if (is_file(UPLOAD_DIR.$file_name))
                                     {
