@@ -47,10 +47,10 @@ class Controller{
         $result=array();
         $max_pages=ceil($this->num_rows/$limit);
         $page=$this->get['page'];
-        $list=$page-1;
-        $offset=$list*$limit;
         if($page<=0)$page=1;
         if($page>$max_pages) $page=$max_pages;
+        $list=$page-1;
+        $offset=$list*$limit;
         if($page==1)$offset=0;
         if($page==2)$offset=$limit;
         $query=$this->db->get_pages($limit,$offset);
