@@ -58,7 +58,7 @@ body {
 #center{
     margin-left: 25%;
 }
-#right{
+.right{
     float: right;;
 }
 .container_new{

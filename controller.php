@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-class Router{
+class Controller{
 
     private $get;
     private $post;
@@ -40,7 +40,8 @@ class Router{
         else
             return FALSE;
     }
-                    //Pagination
+
+               //Pagination
     public function pagination($limit)
     {
         $result=array();
@@ -112,7 +113,6 @@ class Router{
                                     if (is_file(UPLOAD_DIR.$file_name))
                                     {
                                         $file=strtolower(substr(strrchr($file_name,'.'),1));
-                                        echo basename($file_name);
 
                                         switch($file)
                                         {
@@ -137,7 +137,8 @@ class Router{
                                             flush();
                                             readfile(UPLOAD_DIR.$file_name);
                                             exit();
-                                    }
+                                    }break;
+                    case'exit': session_unset($_SESSION['check']);header('Location:index.php');break;
 
                 }
             }

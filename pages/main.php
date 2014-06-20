@@ -3,12 +3,12 @@
 <div class="new_container">
 
     <div class="panel panel-primary">
-        <div class="panel-heading">Оставте ваше сообщение</div>
+        <div class="panel-heading">Оставьте ваше сообщение</div>
         <div class="panel-body">
-            <form method="POST" enctype="multipart/form-data"action="index.php" role="form">
+            <form method="POST" enctype="multipart/form-data" action="index.php" role="form">
                 <div class="form-group">
                     <label for="text">Тема сообщения</label>
-                    <input type="text" name="theme" class="form-control"id="text">
+                    <input type="text" name="theme" class="form-control" id="text">
                 </div>
 
                 <div class="form-group">

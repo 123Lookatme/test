@@ -23,16 +23,16 @@ class DataBase
     {
         $theme=$post['theme'];$mail=$post['mail'];$msg=nl2br($post['text']);$date=time();
         if($file)
-            $query=("INSERT INTO ".TABLE_NAME." (theme,mail,msg,file,date) VALUES ('".$theme ."','".$mail."','".$msg."','".$file."','".$date."')");
+            $query=("INSERT INTO ".TABLE_USER_MESSAGES." (theme,mail,msg,file,date) VALUES ('".$theme ."','".$mail."','".$msg."','".$file."','".$date."')");
         else
-            $query=("INSERT INTO ".TABLE_NAME." (theme,mail,msg,date) VALUES ('".$theme."','".$mail."','".$msg."','".$date."')");
+            $query=("INSERT INTO ".TABLE_USER_MESSAGES." (theme,mail,msg,date) VALUES ('".$theme."','".$mail."','".$msg."','".$date."')");
         mysql_query($query) or die(mysql_error());
         return TRUE;
     }
 //Общее кол-во записей
     public function num_rows()
     {
-        $query=("SELECT * FROM ".TABLE_NAME." ");
+        $query=("SELECT * FROM ".TABLE_USER_MESSAGES." ");
         $result=mysql_query($query);
         $num=mysql_num_rows($result);
         return $num;
@@ -41,7 +41,7 @@ class DataBase
     public function get_pages($limit,$offset,$order='ORDER BY date', $option='DESC')
     {
         $result=array();
-        $query=("SELECT theme,mail,msg,file,date FROM ".TABLE_NAME." ".$order." ".$option." LIMIT ".$limit." "." OFFSET ".$offset." " );
+        $query=("SELECT theme,mail,msg,file,date FROM ".TABLE_USER_MESSAGES." ".$order." ".$option." LIMIT ".$limit." "." OFFSET ".$offset." " );
         $rows= mysql_query($query) or die(mysql_error());
         while($row=mysql_fetch_assoc($rows))
         {
