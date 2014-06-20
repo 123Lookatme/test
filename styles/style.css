@@ -44,7 +44,7 @@ body {
 }
 .new_container{
     width: 800px;
-    padding: 100px 100px 0px 200px;
+    padding: 100px 100px 0 200px;
 }
 .new_container2{
     width: 1000px;
@@ -55,11 +55,26 @@ body {
     margin-left: 18%;
     margin-top: 50px;
 }
-#center{
-    margin-left: 25%;
+.left{
+    float: left;
+    display:inline-block;
+    width: 150px;
+    overflow: hidden;
+    word-wrap: break-word;
+
 }
+#center{
+    padding: 5px 40px;
+    display:inline-block;
+    width: 370px;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-align: center;
+    margin-top: auto;
+}
+
 .right{
-    float: right;;
+    float: right;
 }
 .container_new{
     overflow: hidden;
@@ -69,4 +84,9 @@ body {
 }
 .primary{
     height: 200px;
+}
+#pag-center{
+    display:inline-block;
+    width: inherit;
+    margin-left: 200px;
 }

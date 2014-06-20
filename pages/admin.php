@@ -9,8 +9,8 @@ $result=$result[1];
     <?php for($i=0;$i<count($result);$i++):?>
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <span><strong><?=$result[$i]['theme'];?></strong></span>
-                <span id="center"><?=$result[$i]['mail'];?></span>
+                <span id="center"><strong><?=$result[$i]['theme'];?></strong></span>
+                <span class="left"><?=$result[$i]['mail'];?></span>
                 <span class="right"><?=@date('d-m-Y / H:i:s', $result[$i]['date']);?></span>
             </div>
             <div class="panel-body"><div class="panel-body container_new"><?=$result[$i]['msg'];?></div></div>
@@ -22,7 +22,7 @@ $result=$result[1];
 </div>
 
 <?php if($max_pages>1):?>
-    <ul class="pagination" id="center">
+    <ul class="pagination" id="pag-center">
         <li><a href="<?php $_SERVER['PHP_SELF'];?>?page=1">&laquo;</a></li>
              <?php for($i=1;$i<=$max_pages;$i++):?>
                  <li><a href=<?php $_SERVER['PHP_SELF']?>index.php?page=<?=$i;?>><?=$i;?></a></li>
