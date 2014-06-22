@@ -29,7 +29,7 @@ CREATE TABLE `user_messages` (
   `theme` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `mail` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `msg` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `file` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `file` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `date` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
