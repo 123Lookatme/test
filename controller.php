@@ -8,14 +8,12 @@ class Controller{
     private $file;
     static $instance;
     private $db;
-    public $num_rows;
 
     private function __construct()
     {
         $this->get=$_GET;
         $this->post=$_POST;
         $this->db=DataBase::getInstance();
-        $this->num_rows=$this->db->num_rows();
     }
 
     private function __clone(){}
@@ -31,8 +29,7 @@ class Controller{
 
         if(is_uploaded_file($file['tmp_name']))
         {
-            $pos=strpos($file['name'],".");
-            $str=substr($file['name'],$pos);
+            $str=strtolower(substr(strrchr($file['name'],'.'),0));
             $this->file=time().$str;
             move_uploaded_file($file['tmp_name'],UPLOAD_DIR.$this->file);
             return TRUE;
@@ -45,7 +42,8 @@ class Controller{
     public function pagination($limit)
     {
         $result=array();
-        $max_pages=ceil($this->num_rows/$limit);
+        $rows=$this->db->num_rows();
+        $max_pages=ceil($rows/$limit);
         $page=$this->get['page'];
         if($page<=0)$page=1;
         if($page>$max_pages) $page=$max_pages;
@@ -109,7 +107,7 @@ class Controller{
                                     else
                                         header('Location:index.php?admin=login');break;
                                     //Загрузка файла с сервера
-                    case 'file' :  $file_name=$_GET['file'];
+                    case 'file' :  $file_name=$this->get['file'];
                                     if (is_file(UPLOAD_DIR.$file_name))
                                     {
                                         $file=strtolower(substr(strrchr($file_name,'.'),1));
