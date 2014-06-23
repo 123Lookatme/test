@@ -56,7 +56,7 @@ class DataBase
         if(is_array($post))
         {
             $login=$post['login'];$pass=$post['pass'];
-            $query=("SELECT* FROM ".TABLE_USERS." ");
+            $query=("SELECT login,password FROM ".TABLE_USERS." WHERE login ='admin' ");
             $rows=mysql_query($query);
             $row=mysql_fetch_assoc($rows);
             if($row['login']==$login && $row['password']==$pass)
